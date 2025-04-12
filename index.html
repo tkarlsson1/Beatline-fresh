@@ -18,14 +18,11 @@
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;}
-  img:not(.logga) {
-  max-width: 210px;
-  margin-bottom: 1rem;
-}
-
-img.logga {
-  max-width: none;
-}
+    img {
+      max-width: 210px;
+      margin-bottom: 1rem;
+    }
+    
     .year {
       font-weight: bold;
       font-size: 4.5em;
@@ -243,7 +240,7 @@ img.logga {
     </style>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&amp;display=swap" rel="stylesheet"/></head>
 <body>
-<h1><img alt="Musikquiz" src="logga.png" style="height: 9.6rem; width: auto;"/></h1>
+<h1><img alt="Musikquiz" src="logga.png" style="height: 9.6rem;"/></h1>
 <div>
 <label for="sourceSelect">Spellista:</label>
 <select id="sourceSelect">
@@ -260,7 +257,7 @@ img.logga {
 <button onclick="applyFilters()">Starta spel</button>
 </div>
 <div id="quiz" style="display:none; margin-top: 2rem;">
-<img alt="QR-kod" id="qr" onerror="handleMissingQR()" src=""/>
+<img alt="QR-kod" id="qr" onerror="handleMissingQR()" src="">
 <div>
 <button disabled="" id="showBtn">Visa svar</button>
 <button id="nextBtn">Nästa låt</button>
@@ -274,7 +271,7 @@ img.logga {
 </div>
 <div id="endMessage" style="display:none">Alla låtar har spelats!</div>
 <div id="missingQR" style="display:none">QR-kod saknas!</div>
-</div>
+</img></div>
 <script>
     let songs = [];
 fetch('songs.json')
