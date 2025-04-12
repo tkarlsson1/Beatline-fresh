@@ -18,11 +18,14 @@
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;}
-    img {
-      max-width: 210px;
-      margin-bottom: 1rem;
-    }
-    
+  img:not(.logga) {
+  max-width: 210px;
+  margin-bottom: 1rem;
+}
+
+img.logga {
+  max-width: none;
+}
     .year {
       font-weight: bold;
       font-size: 4.5em;
