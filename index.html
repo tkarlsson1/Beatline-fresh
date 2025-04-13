@@ -19,7 +19,7 @@
   background-attachment: fixed;
   background-repeat: no-repeat;}
     img {
-      max-width: 210px;
+      max-width: 450px;
       margin-bottom: 1rem;
     }
     
@@ -240,7 +240,7 @@
     </style>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&amp;display=swap" rel="stylesheet"/></head>
 <body>
-<h1>MUSIKQUIZ</h1>
+<h1><img alt="Musikquiz" src="logga.png" style="height: 9.6rem;"/></h1>
 <div>
 <label for="sourceSelect">Spellista:</label>
 <select id="sourceSelect">
@@ -257,7 +257,7 @@
 <button onclick="applyFilters()">Starta spel</button>
 </div>
 <div id="quiz" style="display:none; margin-top: 2rem;">
-<img alt="QR-kod" id="qr" onerror="handleMissingQR()" src=""/>
+<img alt="QR-kod" id="qr" onerror="handleMissingQR()" src="" style="width: 210px;">
 <div>
 <button disabled="" id="showBtn">Visa svar</button>
 <button id="nextBtn">Nästa låt</button>
@@ -271,7 +271,7 @@
 </div>
 <div id="endMessage" style="display:none">Alla låtar har spelats!</div>
 <div id="missingQR" style="display:none">QR-kod saknas!</div>
-</div>
+</img></div>
 <script>
     let songs = [];
 fetch('songs.json')
@@ -455,17 +455,13 @@ initGame = function() {
   originalInitGame();
 };
 </script>
-
-
-
 <div id="footer" style=""><button id="googleBtn" style="display:none; margin-bottom: 0.5rem;">Sök på Google</button><button id="startPageBtn" onclick="location.reload();">Startsida</button>
 <button onclick="exportUpdatedSongs()">Exportera JSON</button>
 <button onclick="googleCurrentSong()">Googla låt</button>
 <button onclick="toggleEditYear()">Ändra årtal</button></div>
 <div id="editYearSection" style="margin-top:10px;">
-  <input type="number" id="newYearInput" placeholder="Ange nytt år" style="width:100px;" />
-  <button onclick="saveNewYear()">Spara</button>
+<input id="newYearInput" placeholder="Ange nytt år" style="width:100px;" type="number"/>
+<button onclick="saveNewYear()">Spara</button>
 </div>
-
 </body>
 </html>
