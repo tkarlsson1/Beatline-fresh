@@ -243,23 +243,13 @@
 <h1><img alt="Musikquiz" src="logga.png" style="height: 9.6rem;"/></h1>
 <div>
 <label for="sourceSelect">Spellista:</label>
-<select id="sourceSelect" multiple size="6">
+<select id="sourceSelect">
 <option value="ALL">Alla listor</option>
 <option value="1000 bästa">1000 bästa</option>
-<option value="90+ batch">90+ batch</option>
 <option value="Afterski Klassiker">Afterski Klassiker</option>
-<option value="All Out 2000S">All Out 2000S</option>
-<option value="All Out 2010S">All Out 2010S</option>
-<option value="All Out 2020S">All Out 2020S</option>
-<option value="All Out 50S">All Out 50S</option>
-<option value="All Out 60S">All Out 60S</option>
-<option value="All Out 70S">All Out 70S</option>
-<option value="All Out 80S">All Out 80S</option>
-<option value="All Out 90S">All Out 90S</option>
-<option value="All out+roadtrip">All out+roadtrip</option>
-<option value="Classic Road Trip Songs">Classic Road Trip Songs</option>
 <option value="GPSN">GPSN</option>
-<option value="Songs To Sing In The Car">Songs To Sing In The Car</option>
+<option value="90+ batch">90+ batch</option>
+<option value="All out+roadtrip">All out+roadtrip</option>
 </select>
 <label for="yearFrom">Från år:</label>
 <select id="yearFrom"></select>
@@ -321,10 +311,10 @@ fetch('songs.json')
     }
 
     function applyFilters() {
-      const selectedSources = Array.from(document.getElementById("sourceSelect").selectedOptions).map(o => o.value);
+      const selectedSource = document.getElementById("sourceSelect").value;
       const from = parseInt(document.getElementById("yearFrom").value);
       const to = parseInt(document.getElementById("yearTo").value);
-      filteredSongs = songs.filter(s => (selectedSources.includes("ALL") || selectedSources.includes(s.source)) && s.year >= from && s.year <= to);
+      filteredSongs = songs.filter(s => (selectedSource === "ALL" || s.source === selectedSource) && s.year >= from && s.year <= to);
       remainingSongs = [...filteredSongs];
       document.getElementById("quiz").style.display = "block";
       document.getElementById("restartBtn").style.display = "none";
